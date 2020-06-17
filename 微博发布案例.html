@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            text-decoration: none;
+            outline: none;
+            list-style: none;
+        }
+
+        .box {
+            position: relative;
+
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        span {
+            position: absolute;
+            top: -30px;
+            left: 230px;
+            font-size: 16px;
+            color: orange;
+            font-style: italic;
+        }
+
+        textarea {
+            margin: 50px 120px;
+        }
+
+        button {
+            position: absolute;
+            top: 181px;
+            left: 381px;
+        }
+
+        ul {}
+
+        ul li {
+            border-bottom: 1px dashed #999;
+        }
+
+        a {
+            color: #999;
+            float: right;
+        }
+
+        input {
+            background: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox">
+    <div class="box">
+        <span>新浪微博</span>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+    <script>
+
+        $('button').on('click', function () {
+            var li = $('<li></li>');
+            $('ul').prepend(li);
+            var nr = $('textarea').val();
+            li.html(nr + '<a href="javascript:;">删除</a>');
+            li.slideDown();
+            $('textarea').val("");
+
+        })
+        $('ul').on('click', 'a', function () {
+            $(this).parent().slideUp(function () {
+                $(this).remove();
+            })
+        })
+    </script>
+</body>
+
+</html>

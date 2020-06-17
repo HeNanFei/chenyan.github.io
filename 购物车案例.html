@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            text-decoration: none;
+        }
+
+        .jcheck {
+            margin-right: 50px;
+        }
+
+        span {
+            margin-right: 50px;
+        }
+
+        a {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+            color: #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 16px;
+        }
+
+        .num {
+            width: 30px;
+        }
+
+        .all {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thead">
+        <input type="checkbox" class="checkall">全选
+    </div>
+    <div class="tbody">
+        <input type="checkbox" class="jcheck" checked>
+        <span class="price">单价:¥12.4</span>
+        <a href="javascript:;" class="left">-</a><input type="text" value="1" class="num"><a href="javascript:;"
+            class="right">+</a>
+        <span class="all">合计:¥12.4</span>
+    </div>
+    <div class="tbody">
+        <input type="checkbox" class="jcheck">
+        <span class="price">单价:¥22.4</span>
+        <a href="javascript:;" class="left">-</a><input type="text" value="1" class="num"><a href="javascript:;"
+            class="right">+</a>
+        <span class="all">合计:¥22.4</span>
+    </div>
+    <div class="tbody">
+        <input type="checkbox" class="jcheck">
+        <span class="price">单价:¥32.4</span>
+        <a href="javascript:;" class="left">-</a><input type="text" value="1" class="num"><a href="javascript:;"
+            class="right">+</a>
+        <span class="all">合计:¥32.4</span>
+    </div>
+    <div class="thead">
+        <input type="checkbox" class="checkall">全选
+    </div>
+    <script>
+        $(function () {
+            //全选按钮发生变化
+            $('.checkall').change(function () {
+                var ati = $(this).prop('checked');
+                $('.jcheck,.checkall').prop('checked', ati);
+            })
+            //单选按钮发生变化
+            $('.jcheck').change(function () {
+                if ($('.jcheck:checked').length === $('.jcheck').length) {
+                    $('.checkall').prop('checked', true);
+                } else {
+                    $('.checkall').prop('checked', false);
+                }
+            })
+            //右按钮点击
+            $('.right').click(function () {
+                var n = $(this).siblings('.num').val();
+                n++;
+                $(this).siblings('.num').val(n);
+                var p = $(this).siblings('.price').text();
+                p = p.substr(4);
+                $(this).siblings('.all').text('合计¥' + (n * p).toFixed(2));
+            })
+            //左按钮点击
+            $('.left').click(function () {
+                var n = $(this).siblings('.num').val();
+                n--;
+                if (n < 1) {
+                    return false;
+                } else {
+                    $(this).siblings('.num').val(n);
+                    var p = $(this).siblings('.price').text();
+                    p = p.substr(4);
+                    $(this).siblings('.all').text('合计¥' + (n * p).toFixed(2));
+                }
+            })
+            $('.num').change(function () {
+                var b = $(this).val();
+                var p = $(this).siblings('.price').text();
+                p = p.substr(4);
+                $(this).siblings('.all').text('合计¥' + (p * b).toFixed(2));
+            })
+        })
+    </script>
+</body>
+
+</html>

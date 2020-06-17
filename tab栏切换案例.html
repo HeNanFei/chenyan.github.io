@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            list-style: none;
+        }
+
+        .box {
+            width: 305px;
+            height: 200px;
+            border: 1px solid orange;
+        }
+
+        .top {
+            width: 100%;
+            height: 50px;
+        }
+
+        .top ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .top li {
+            float: left;
+            width: 50px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            overflow: hidden;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .top li:nth-child(6) {
+            border-right: 0;
+        }
+
+        .box .bottom {
+            width: 307px;
+            height: 151px;
+        }
+
+        .current {
+            background-color: pink;
+        }
+
+        .bottom div {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <ul class="tp">
+                <li>点击</li>
+                <li>点击</li>
+                <li>点击</li>
+                <li>点击</li>
+                <li>点击</li>
+                <li>点击</li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.tp li').mouseover(function () {
+                $(this).addClass('current').siblings().removeClass('current');
+                var index = $(this).index();
+                console.log($(this).index());
+                $('.bottom div').eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+
+</html>

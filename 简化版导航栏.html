@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .head li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            margin: auto;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #999;
+        }
+
+        .head .body {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="head">
+        <li>
+            <a href="#">微博</a>
+            <ul class="body">
+                <li>过去</li>
+                <li>现在</li>
+                <li>未来</li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="head">
+        <li>
+            <a href="#">微博</a>
+            <ul class="body">
+                <li>过去</li>
+                <li>现在</li>
+                <li>未来</li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="head">
+        <li>
+            <a href="#">微博</a>
+            <ul class="body">
+                <li>过去</li>
+                <li>现在</li>
+                <li>未来</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(function () {
+            $('.head >li').hover(function () {
+                $(this).children('.body').stop().slideToggle(200);
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .left {
+            width: 100px;
+            height: 306px;
+            margin: 100px auto;
+            border: 1px solid black;
+        }
+
+        .left ul {
+            padding: 0;
+            margin: 0;
+        }
+
+
+        .left li {
+            height: 50px;
+            border-bottom: 1px solid black;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .right div {
+            position: absolute;
+            top: 100px;
+            left: 771px;
+            width: 306px;
+            height: 306px;
+            border: 1px solid black;
+        }
+
+        .right div img {
+            width: 306px;
+            height: 306px;
+        }
+
+        img {
+            display: ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <ul id="zuo">
+            <li>刘德华</li>
+            <li>张学友</li>
+            <li>郭富城</li>
+            <li>黎明</li>
+            <li>郭德纲</li>
+            <li>范冰冰</li>
+        </ul>
+    </div>
+    <div class="right">
+        <div>
+            <img src="images/2.jpg" alt="">
+        </div>
+        <div>
+            <img src="images/3.jpeg" alt="">
+        </div>
+        <div>
+            <img src="images/4.jpeg" alt="">
+        </div>
+        <div>
+            <img src="images/5.jpeg" alt="">
+        </div>
+        <div>
+            <img src="images/5.5.jpeg" alt="">
+        </div>
+        <div>
+            <img src="images/7.jpeg" alt="">
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#zuo li').mouseover(function () {
+                var index = $(this).index();
+                console.log($(this).index());
+
+                $('.right div').eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+
+</html>

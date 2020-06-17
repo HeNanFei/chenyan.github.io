@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            list-style: none;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .box {
+            width: 600px;
+            height: 400px;
+            margin: 150px auto;
+            border: 1px solid #ccc;
+        }
+
+        .box ul {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box ul li {
+            float: left;
+            height: 200px;
+            width: 200px;
+            border: 1px solid #999;
+            box-sizing: border-box;
+        }
+
+        .box li img {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="bx">
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpeg" alt=""></li>
+            <li><img src="images/4.jpeg" alt=""></li>
+            <li><img src="images/5.jpeg" alt=""></li>
+            <li><img src="images/5.5.jpeg" alt=""></li>
+            <li><img src="images/7.jpeg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        $(function () {
+            $('.bx li').hover(function () {
+                $(this).siblings().stop().fadeTo('400', .4);
+            }, function () {
+                $(this).siblings().stop().fadeTo('400', 1);
+            })
+        })
+    </script>
+</body>
+
+</html>
